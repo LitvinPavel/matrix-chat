@@ -22,7 +22,7 @@ export function useRoomList() {
     accessToken: Nullable<string>
   ) {
     if (!baseUrl) return;
-    let matrixClient = sdk.createClient({
+    const matrixClient = sdk.createClient({
       baseUrl: baseUrl,
       userId: userId || undefined,
       accessToken: accessToken || undefined,

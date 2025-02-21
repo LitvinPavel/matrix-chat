@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory, type RouteMeta } from "vue-router";
 import LoginPage from "@/views/LoginPage.vue";
 import ListViewPage from "@/views/ListViewPage.vue";
 
@@ -29,7 +29,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.matched.some((record: { meta: { requiresAuth: any } }) => record.meta.requiresAuth)) {
+  if (to.matched.some((record: { meta: RouteMeta }) => record.meta.requiresAuth)) {
     if (!isAuth()) {
       next({ name: "Login" });
     } else {

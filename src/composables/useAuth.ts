@@ -13,7 +13,7 @@ export function useAuth() {
 
   async function fetchLogin() {
     try {
-      let matrixClient = sdk.createClient({ baseUrl: formRef.baseUrl });
+      const matrixClient = sdk.createClient({ baseUrl: formRef.baseUrl });
       const result = await matrixClient.loginRequest({
         type: "m.login.password",
         user: formRef.login,

@@ -1,5 +1,4 @@
 <script setup async lang="ts">
-import { reactive } from "vue";
 import FormField from "@/components/FormField.vue";
 import { useAuth } from "@/composables";
 
