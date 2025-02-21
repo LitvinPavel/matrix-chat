@@ -15,13 +15,13 @@ onMounted(() => {
 
 <template>
   <BaseLoader v-if="loading" class="my-10" />
-  <ul v-else class="my-10 w-[380px]">
+  <ul v-else class="my-10 w-[480px]">
     <li
       v-for="(room, index) in roomList"
       :key="index"
       class="px-5 py-[15px] border-b border-zinc-700 last:border-0"
     >
-      <div class="relative flex">
+      <div class="relative flex space-x-3">
         <div class="relative self-center ltr:mr-3 rtl:ml-3">
           <img
             v-if="room.avatarUrl"
@@ -41,12 +41,12 @@ onMounted(() => {
         </div>
         <div class="flex-grow overflow-hidden space-y-1">
           <h5 class="text-base truncate text-gray-50">{{ room.name }}</h5>
-          <p v-if="room.lastMessage?.text" class="truncate text-gray-300">
-            {{ room.lastMessage.text }}
+          <p v-if="room.lastEvent?.text" class="truncate text-gray-400">
+            {{ room.lastEvent.text }}
           </p>
         </div>
-        <div v-if="room.lastMessage?.date" class="text-[0.6rem] text-gray-300">
-          {{ room.lastMessage.date.toLocaleString() }}
+        <div v-if="room.lastEvent?.date" class="flex-shrink-0 text-[0.6rem] text-gray-300 mr-0">
+          {{ room.lastEvent.date.toLocaleString() }}
         </div>
         <div
           v-if="room.unreadNotificationCount > 0"
